@@ -163,3 +163,30 @@ def process_numbers():
     divide_by_three(start, end)
     sum_of_interval(start, end)
 
+# Oppgave 1.4
+
+def menu():
+    while True:
+        print("1. Beregn tidsbruk")
+        print("2. Analyser tekst")
+        print("3. Analyser tallintervall")
+        print("4. Avslutt")
+
+        try:
+            choice = int(input("Ditt valg: "))
+
+            if choice == 1:
+                process_time()
+            elif choice == 2:
+                process_text()
+            elif choice == 3:
+                process_numbers()
+            elif choice == 4:
+                print("Programmet avsluttes. Ha en fin dag!")
+                break
+            else:
+                print("Ugyldig valg. Vennligst velg et tall mellom 1 og 4.")
+
+        except ValueError:
+            print("Feil: du må skrive inn et heltall mellom 1 og 4.")
+menu()
