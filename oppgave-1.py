@@ -1,4 +1,5 @@
 # Oppgave 1.1
+
 def write_error_msg(message):
     while True:
         try:
@@ -87,7 +88,7 @@ def check_for_python(text):
     elif "python" in string:
         print("Teksten din inneholder ordet 'Python'")
     else:
-        print("Teksten din inneholder ordet ikke 'Python'")
+        print("Teksten din inneholder ikke ordet 'Python'")
 
 
 def process_text():
@@ -97,3 +98,68 @@ def process_text():
     write_lowercase(user_text)
     write_backwards(user_text)
     check_for_python(user_text)
+
+# Oppgave 1.3
+
+def error_check(message):
+    while True:
+        try:
+            user_input = int(input(message))
+
+            if user_input > 0:
+                return user_input
+            else:
+                print("Vennligst skriv inn et positivt heltall.")
+        except ValueError:
+            print("Vennligst skriv inn et positivt heltall.")
+
+
+def get_valid_interval():
+    while True:
+        start = error_check("Skriv inn det første tallet: ")
+        end = error_check("Skriv inn det andre tallet: ")
+
+        if start <= end:
+            return start, end
+
+        print("Feil: Det første tallet kan ikke være større enn det andre tallet. ")
+
+
+def check_if_even(start, end):
+    even_numbers = 0
+
+    for num in range(start, end + 1):
+        if num % 2 == 0:
+            even_numbers += 1
+
+    print(even_numbers)
+
+
+def divide_by_three(start, end):
+    divisible_by_three = 0
+
+    for num in range(start, end + 1):
+        if num % 3 == 0:
+            divisible_by_three += 1
+
+    print(divisible_by_three)
+
+
+def sum_of_interval(start, end):
+    total_sum = 0
+
+    for num in range(start, end + 1):
+        total_sum += num
+
+    print(total_sum)
+
+
+def process_numbers():
+    print("Skriv inn et tallintervall!")
+
+    start, end = get_valid_interval()
+
+    check_if_even(start, end)
+    divide_by_three(start, end)
+    sum_of_interval(start, end)
+
