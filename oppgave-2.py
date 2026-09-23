@@ -54,3 +54,5 @@ def show_finished_study_sessions():
     for status in study_sessions:
         if status.get("status") == "Completed":
             print(status)
+
+

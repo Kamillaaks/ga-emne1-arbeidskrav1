@@ -54,6 +54,7 @@ def count_spaces(text):
 
 def count_letters(text):
     letter_count = 0
+    text = text.casefold()
 
     alphabet =[
             'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i',
