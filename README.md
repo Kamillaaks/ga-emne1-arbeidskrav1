@@ -1,4 +1,20 @@
 # Arbeidskrav 1 - Python
+Navn: Kamilla Selnes
+
+Programmene er skrevet i Python og kan kjøres fra innleveringsmappen.
+
+Eksempel: 
+python oppgave-1.py
+
+De øvrige oppgavene kjøres på samme måte ved å endre filnavnet.
+
+## Kjente feil og mangler
+Jeg har ikke rukkert å fullføre allle oppgavene. Oppgave 3 er delvis påbegynt, men ikke ferdig. Oppgave 4 og 5 er ikke
+påbegynt.
+
+Jeg har heller ikke rukket å spille inn videoen som skal følge med innleveringen.
+
+
 
 ## Oppgave 1
 Løsning og fremgangsmåte:
@@ -66,3 +82,10 @@ ved hjelp av datetime
 Tittel: Datetime - Basic date and time types
 Kilde: Python Software Foundation
 Nettadresse: https://docs.python.org/3/library/datetime.html
+
+
+## Git-historikk
+Jeg har brukt Git under arbeidet med oppgavene.
+Commit-historikken er tilgjengelig på Github:
+
+[Se Git-historikken]https://github.com/Kamillaaks/ga-emne1-arbeidskrav1/commits/master/
