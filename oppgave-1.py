@@ -8,10 +8,10 @@ def write_error_msg(message):
             if message_from_user > 0:
                 return message_from_user
             else:
-                print("Vennligst skriv inn et positivt heltall.")
+                print("Please enter a positive integer.")
 
         except ValueError:
-            print("Vennligst skriv inn et positivt heltall.")
+            print("Please enter a positive integer.")
 
 
 def calculate_hours(sessions, minutes):
@@ -20,12 +20,12 @@ def calculate_hours(sessions, minutes):
     hours = total_minutes // 60
     rest_minutes = total_minutes % 60
 
-    print(f"Du har studert i {hours} timer og {rest_minutes} minutter.")
+    print(f"You have studied for {hours} hours and {rest_minutes} minutes.")
 
 
 def process_time():
-    study_sessions = write_error_msg("Antall studieøkter: ")
-    minutes_per_session = write_error_msg("Antall minutter brukt per økt: ")
+    study_sessions = write_error_msg("Number of study sessions: ")
+    minutes_per_session = write_error_msg("Number of minutes spent per session: ")
 
     calculate_hours(study_sessions, minutes_per_session)
 
@@ -39,7 +39,7 @@ def check_errors(input_string):
         if message.strip():
             return message
         else:
-            print("Du kan ikke sende inn en tom tekst eller bare mellomrom. Vennligst skriv inn din tekst.")
+            print("You cannot submit empty text or just spaces. Please enter your text.")
 
 
 def count_spaces(text):
@@ -49,7 +49,7 @@ def count_spaces(text):
         if spaces == " ":
             space_count +=1
 
-    print(f"Antall mellomrom: {space_count}")
+    print(f"Number of spaces: {space_count}")
 
 
 def count_letters(text):
@@ -59,15 +59,14 @@ def count_letters(text):
     alphabet =[
             'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i',
             'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
-            's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'æ',
-            'ø', 'å'
+            's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
         ]
 
     for letters in text:
         if letters in alphabet:
             letter_count += 1
 
-    print(f"Antall bokstaver: {letter_count}")
+    print(f"Number of letters: {letter_count}")
 
 
 def write_lowercase(text):
@@ -85,15 +84,15 @@ def write_backwards(text):
 def check_for_python(text):
     string = text
     if "Python" in string:
-        print("Teksten din inneholder ordet 'Python'")
+        print("Your text contains the word 'Python'")
     elif "python" in string:
-        print("Teksten din inneholder ordet 'Python'")
+        print("Your text contains the word 'Python'")
     else:
-        print("Teksten din inneholder ikke ordet 'Python'")
+        print("Your text does not contain the word 'Python'")
 
 
 def process_text():
-    user_text = check_errors("Skriv inn din tekst for analyse: ")
+    user_text = check_errors("Enter your text for analysis: ")
     count_letters(user_text)
     count_spaces(user_text)
     write_lowercase(user_text)
@@ -110,20 +109,20 @@ def error_check(message):
             if user_input > 0:
                 return user_input
             else:
-                print("Vennligst skriv inn et positivt heltall.")
+                print("Please enter a positive integer.")
         except ValueError:
-            print("Vennligst skriv inn et positivt heltall.")
+            print("Please enter a positive integer.")
 
 
 def get_valid_interval():
     while True:
-        start = error_check("Skriv inn det første tallet: ")
-        end = error_check("Skriv inn det andre tallet: ")
+        start = error_check("Enter the first number: ")
+        end = error_check("Enter the second number: ")
 
         if start <= end:
             return start, end
 
-        print("Feil: Det første tallet kan ikke være større enn det andre tallet. ")
+        print("Error: The first number cannot be greater than the second number.")
 
 
 def check_if_even(start, end):
@@ -156,7 +155,7 @@ def sum_of_interval(start, end):
 
 
 def process_numbers():
-    print("Skriv inn et tallintervall!")
+    print("Enter a number range!")
 
     start, end = get_valid_interval()
 
@@ -168,13 +167,13 @@ def process_numbers():
 
 def menu():
     while True:
-        print("1. Beregn tidsbruk")
-        print("2. Analyser tekst")
-        print("3. Analyser tallintervall")
-        print("4. Avslutt")
+        print("Estimate the time required")
+        print("Analyze text")
+        print("Analyze numerical intervals")
+        print("4. Exit")
 
         try:
-            choice = int(input("Ditt valg: "))
+            choice = int(input("Your choice: "))
 
             if choice == 1:
                 process_time()
@@ -183,11 +182,11 @@ def menu():
             elif choice == 3:
                 process_numbers()
             elif choice == 4:
-                print("Programmet avsluttes. Ha en fin dag!")
+                print("Ending the program. Have a nice day!")
                 break
             else:
-                print("Ugyldig valg. Vennligst velg et tall mellom 1 og 4.")
+                print("Invalid choice. Please select a number between 1 and 4.")
 
         except ValueError:
-            print("Feil: du må skrive inn et heltall mellom 1 og 4.")
+            print("Error: You must enter an integer between 1 and 4.")
 menu()
