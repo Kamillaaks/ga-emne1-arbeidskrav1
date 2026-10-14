@@ -8,6 +8,7 @@ def text_to_date(date):
     except ValueError:
          return None
 
+
 def get_end_time(start_time_str, minutes):
     try:
         start_time = datetime.strptime(start_time_str, "%H:%M")
@@ -20,8 +21,22 @@ def get_end_time(start_time_str, minutes):
     except ValueError:
         return None
 
-def days_between():
-    print()
+
+def days_between(date1, date2):
+    if not date1 or not date2:
+        return None
+
+    date_format = "%d.%m.%Y"
+
+    try:
+        parsed_date1 = datetime.strptime(date1, date_format)
+        parsed_date2 = datetime.strptime(date2, date_format)
+
+        return abs(parsed_date2 - parsed_date1).days
+
+    except ValueError:
+        return None
+
 
 def sort_dates():
     print()
