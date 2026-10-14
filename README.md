@@ -52,28 +52,52 @@ fikk også forklaringer på any() og str(). Jeg har skrevet og testet koden selv
 
 ## Oppgave 3
 Løsning og fremgangsmåte:
-Denne oppgaven rakk jeg ikke å bli ferdig med. Men jeg startet med å dele oppgaven i fire funksjoner, og ga de hvert 
-sitt ansvarsområde. Den ene skal konvertere dato, en skal beregne sluttidspunkt, en skal beregne antall dager mellom to 
+Jeg startet med å dele oppgaven i fire funksjoner, og ga dem hvert sitt ansvarsområde. Den ene skal konvertere dato, en skal beregne sluttidspunkt, en skal beregne antall dager mellom to 
 datoer, og den siste skal sortere datoer kronologisk.
 
-Jeg opprettet først funksjonene med midlertidige print() -uttrykk for å få på plass strukturen før jeg skulle begynne å
+Jeg opprettet først funksjonene med midlertidige print()-uttrykk for å få på plass strukturen før jeg skulle begynne å
 implementere funksjonaliteten.
 
-Jeg valgte å undersøke Pythons datetime-bibliotek, siden det inneholder funksjonalitet for å jobbe med datoer, klokkeslett
-og tidsintervaller.
+Jeg valgte å bruke Pythons datetime-bibliotek, siden det inneholder funksjonalitet for å jobbe med datoer, klokkeslett
+og tidsintervaller. Jeg brukte blant annet strptime() for å konvertere tekst til datoer og klokkeslett, og timedelta for
+å beregne sluttidspunkt ut fra starttid og varighet.
+
+For å beregne antall dager mellom to datoer brukte jeg differansen mellom datoene og abs() for å sikre at resultatet ble
+positivt eller null, uavhengig av hvilken dato brukeren skriver først.
+
+For å sortere datoene har jeg brukt sorted() med key=text_to_date, sånn at datoene sorteres kronologisk i stedet for 
+alfabetisk.
+
+Etter at jeg hadde fått beregningsfunksjonene til å funke, laget jeg egne hjelpefunksjoner som håndterer brukerinput, 
+validering og utskrift av resultatene. Jeg valgte denne løsningen for å skille beregningslogikken fra brukerinput og utskrift.
+
+Til slutt laget jeg en meny med fem alternativer, sånn at brukeren kan velge hva hen vil gjøre, og avslutte programmet når
+hen er ferdig. 
 
 Tester:
 | Test | Input | Forventet resultat | Faktisk resultat |
 |---|---|---|---|
-| 1 | 01.01.2026 | Gyldig dato | Returnerte 2026.01.01 |
+| 1 | 01.01.2026 | Gyldig dato | Returnerte 2026-01-01 |
 | 2 | 31.02.2026 | Ugyldig dato | Viste feilmelding og ba om ny dato |
+| 3 | 12:30 og 90 minutter | Sluttid 14:00 | Returnerer 14:00 |
+| 4 | 23:30 og 90 minutter | Sluttid 01:00 | Returnerer 01:00 |
+| 5 | 12:30 og 0 minutter | Ugyldig varighet | Viser feilmelding og ber om ny varighet |
+| 6 | 01.10.2026 og 10.10.2026 | 9 dager | Returnerer 9 dager |
+| 7 | To like datoer | 0 dager | Returnerer 0 dager |
+| 8 | Flere datoer i tilfeldig rekkefølge | Liste sortert i kronologisk rekkefølge | Listen sorteres kronologisk |
+| 9 | Done uten å legge inn datoer | Feilmelding | Brukeren må legge inn minst en dato |
 
 Bruk av KI i oppgaven:
-Jeg brukte ChatGPT til å finne relevant informasjon og dokumentasjon om Pythons standardbibliotek, spesielt datetime. Jeg
-har også brukt ChatGPT til å få forklart hvordan datostrenger kan konverteres til datoverdier, og til å diskutere hvordan
-funksjoner kan ta imot parametere og returnere verdier til hovedprogrammet.
+Jeg har brukt ChatGPT som læringsstøtte mens jeg har jobbet med oppgaven. Jeg har fått hjelp til å finne og forstå relevant
+dokumentasjon om Pythons standardbibliotek, spesielt datetime, strptime() og timedelta.
 
-Jeg brukte informasjonen som læringsstøtte i mens jeg jobbet med min egen løsning.
+Jeg har også brukt ChatGPT til å diskutere hvordan jeg kunne strukturere programmet, sånn at funksjonene som utfører beregningene
+tar imot parametere og returnerer resultatene, mens egne hjelpefunksjoner håndterer brukerinput og utskrift.
+
+Jeg fikk også hjelp med å forstå hvordan sorted() kan brukes sammen med key, og tilbakemeldinger på kode jeg hadde skrevet selv,
+blant annet rundt validering av brukerinput og plassering av break og continue, når jeg selv hadde "sett meg blind" på koden.
+
+Jeg brukte forklaringene og tilbakemeldingene til å jobbe videre med min egen løsning og testet funksjonaliteten underveis.
 
 Kilder og dokumentasjon:
 Jeg brukte den offisielle Python-dokumentasjonen for å lære hvordan man kan jobbe med datoer, klokkeslett og tidsintervaller
