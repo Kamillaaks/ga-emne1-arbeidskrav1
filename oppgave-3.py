@@ -71,6 +71,20 @@ def days_between(date1, date2):
         return None
 
 
+def handle_days_between():
+    while True:
+        first_date = input("Please enter first date(dd.mm.yyyy): ")
+        second_date = input("Please enter second date(dd.mm.yyyy): ")
+
+        days = days_between(first_date, second_date)
+
+        if days is None:
+            print("Error: The date entered is invalid.")
+        else:
+            print(f"Days between dates: {days}")
+            break
+
+
 def sort_dates(date_list):
     for date in date_list:
         if text_to_date(date) is None:
@@ -79,4 +93,4 @@ def sort_dates(date_list):
     return sorted(date_list, key=text_to_date)
 
 
-handle_end_time()
+
