@@ -34,6 +34,27 @@ def get_end_time(start_time_str, minutes):
         return None
 
 
+def handle_end_time():
+    while True:
+        start_time = input("Please enter start time (hh:mm): ")
+
+        try:
+            duration_minutes = int(input("Enter duration in minutes: "))
+
+            if duration_minutes <= 0:
+                print("Error: Please enter a positive number.")
+                continue
+
+            end_time = get_end_time(start_time, duration_minutes)
+            if end_time is None:
+                print("Error: Invalid start time. Please use hh:mm format.")
+            else:
+                print(f"Valid end time: {end_time}")
+                break
+        except ValueError:
+            print("Error: The duration entered is invalid.")
+
+
 def days_between(date1, date2):
     if not date1 or not date2:
         return None
@@ -58,4 +79,4 @@ def sort_dates(date_list):
     return sorted(date_list, key=text_to_date)
 
 
-handle_date_input()
+handle_end_time()
