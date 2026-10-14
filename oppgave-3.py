@@ -1,19 +1,24 @@
-from datetime import  datetime
+from datetime import datetime, timedelta
 
 
+def text_to_date(date):
+    try:
+        date_object = datetime.strptime(date, "%d.%m.%Y").date()
+        return date_object
+    except ValueError:
+         return None
 
-def text_to_date():
-    while True:
-        get_date = input("Enter your date (dd.mm.yyyy): ")
-        try:
-            date_object = datetime.strptime(get_date, "%d.%m.%Y").date()
-            return date_object
-        except ValueError:
-            print("Invalid date. Please try again.")
+def get_end_time(start_time_str, minutes):
+    try:
+        start_time = datetime.strptime(start_time_str, "%H:%M")
 
+        if minutes <= 0:
+            return None
 
-def get_end_time():
-    print()
+        stop_time = start_time + timedelta(minutes=minutes)
+        return stop_time.strftime("%H:%M")
+    except ValueError:
+        return None
 
 def days_between():
     print()
@@ -21,3 +26,5 @@ def days_between():
 def sort_dates():
     print()
 
+
+def main():
