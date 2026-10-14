@@ -6,7 +6,7 @@ def text_to_date(date):
         date_object = datetime.strptime(date, "%d.%m.%Y").date()
         return date_object
     except ValueError:
-         return None
+        return None
 
 
 def handle_date_input():
@@ -73,8 +73,8 @@ def days_between(date1, date2):
 
 def handle_days_between():
     while True:
-        first_date = input("Please enter first date(dd.mm.yyyy): ")
-        second_date = input("Please enter second date(dd.mm.yyyy): ")
+        first_date = input("Please enter first date (dd.mm.yyyy): ")
+        second_date = input("Please enter second date (dd.mm.yyyy): ")
 
         days = days_between(first_date, second_date)
 
@@ -93,4 +93,58 @@ def sort_dates(date_list):
     return sorted(date_list, key=text_to_date)
 
 
+def handle_date_sorting():
+    date_list = []
+    print("Please enter a date (dd.mm.yyyy): ")
+    print("When you are done entering your dates, please enter 'Done' to quit.")
+    while True:
+        dates = input("Date: ")
 
+        if dates.lower() == "done":
+            if not date_list:
+                print("Error: Please enter at least one date.")
+                continue
+            break
+
+        check_dates = text_to_date(dates)
+        if check_dates is None:
+            print("Error: The date entered is invalid.")
+            continue
+
+        date_list.append(dates)
+
+    finished_list = sort_dates(date_list)
+
+    print(f"List of dates {finished_list}")
+
+
+def menu():
+    while True:
+        print("What would you like to do?")
+        print("1. Validate a date")
+        print("2. Calculate end time")
+        print("3. Calculate days between dates")
+        print("4. Sort dates chronologically")
+        print("5. Exit")
+
+        try:
+            choice = int(input("Your choice: "))
+
+            if choice == 1:
+                handle_date_input()
+            elif choice == 2:
+                handle_end_time()
+            elif choice == 3:
+                handle_days_between()
+            elif choice == 4:
+                handle_date_sorting()
+            elif choice == 5:
+                print("Goodbye!")
+                break
+            else:
+                print("Error: The number must be between 1 and 5.")
+        except ValueError:
+            print("Error: Please enter a valid integer (numbers only).")
+
+
+menu()
