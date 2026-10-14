@@ -9,6 +9,18 @@ def text_to_date(date):
          return None
 
 
+def handle_date_input():
+    while True:
+        input_date = input("Please enter a date (dd.mm.yyyy): ")
+        parsed_date = text_to_date(input_date)
+
+        if parsed_date is None:
+            print("Error: The date entered is invalid.")
+        else:
+            print(f"Valid date: {parsed_date}")
+            break
+
+
 def get_end_time(start_time_str, minutes):
     try:
         start_time = datetime.strptime(start_time_str, "%H:%M")
@@ -46,5 +58,4 @@ def sort_dates(date_list):
     return sorted(date_list, key=text_to_date)
 
 
-
-def main():
+handle_date_input()
