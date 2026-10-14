@@ -38,8 +38,13 @@ def days_between(date1, date2):
         return None
 
 
-def sort_dates():
-    print()
+def sort_dates(date_list):
+    for date in date_list:
+        if text_to_date(date) is None:
+            return None
+
+    return sorted(date_list, key=text_to_date)
+
 
 
 def main():
