@@ -107,6 +107,61 @@ Tittel: Datetime - Basic date and time types
 Kilde: Python Software Foundation
 Nettadresse: https://docs.python.org/3/library/datetime.html
 
+## Oppgave 4
+Løsning og fremgangsmåte:
+Jeg begynte med oppgave 4.1. Jeg brukte csv.DictReader fordi den gjør det lettere å lese CSV-filer siden den automatisk 
+kobler sammen radene med kolonnenavnene i filen. Jeg opprettet en tom liste (valid_requests) for å samle henvendelsene som 
+oppfylte kravene.
+
+Jeg brukte en for-løkke for å gå gjennom radene og kontrollere at verdiene var gyldige. Om en rad inneholdt ugyldige verdier,
+brukte jeg en continue for å hoppe over den og gå videre til neste rad. Jeg brukte også try/except ValueError for å håndtere
+feil når ID og minutter skulle konverteres til heltall.
+
+Helt på slutten la jeg til try/except FileNotFoundError for å håndtere tilfeller der CSV-filen ikke finnes. Jeg la også inn en kontroll
+som hindrer programmet i å fortsette med analysen om det ikke finnes gyldige henvendelser.
+
+I oppgave 4.2 brukte jeg flere for-løkker for å gå gjennom de gyldige henvendelsene og beregne statistikken. For å telle 
+antall henvendelser per kategori brukte jeg en dictionary, der kategorinavnene er nøkler og antall henvendelser er verdier.
+
+Jeg brukte max() sammen med lambda for å finne kategorien med flest henvendelser.
+
+For å sortere de uløste henvendelsene opprettet jeg først en egen liste med henvendelsene som hadde status "no". Så brukte
+jeg sorted() med lambda og reverse=True for å sortere dem etter tidsbruk, fra høyest til lavest.
+
+I oppgave 4.3 brukte jeg with open() med "w" for å skrive resultatene fra analysen til en tekstfil. Jeg brukte file.write()
+og f-strings til å sette inn verdiene fra variablene jeg lagde i 4.2.
+
+Først skrev jeg ut hele dictionaries og lister direkte, men da ble resultatet vanskelig å lese. Derfor endret jeg på koden 
+til å bruke for-løkker, slik at kategoriene og de uløste henvendelsene ble skrevet på hver sin linje.
+
+I oppgave 4.4 fant jeg følgende feil:
+- = måtte endres til ==, fordi funksjonen skulle sammenligne verdier og ikke tilordne en ny verdi.
+- total = request["minutes"] måtte endres til total += request["minutes"], sånn at minuttene ble lagt til totalsummen i stedet for
+å erstatte den.
+- return total_minutes måtte endres til return total, fordi det var total som ble brukt til å beregne summen inne i funksjonen.
+- Funksjonskallet manglet et argument. Jeg la derfor inn valid_requests da jeg kalte funksjonen.
+- Jeg kontrollerte også at innrykkene lå på riktig nivå.
+
+Bruk av KI i oppgaven:
+Jeg har brukt ChatGPT som hjelpemiddel under arbeidet med oppgave 4, hovedsakelig for å forstå hvordan ulike deler av Python
+funker, diskutere fremgangsmåter og få hjelp til feilsøking.
+
+Jeg har skrevet og testet koden selv, men har fått forklaringer og tilbakemeldinger som har påvirket enkelte deler av løsningen.
+
+4.1 
+Jeg brukte ChatGPT til å diskutere validering av data og håndtering av feil. Dette hjalp meg med å forstå hvordan jeg kunne kontrollere
+verdiene i CSV-filen og håndtere ugyldige rader.
+
+4.2
+Jeg brukte ChatGPT til å forstå og diskutere enkelte metoder for å behandle og sortere data, blant annet bruk av sorted()
+og lambda.
+
+4.3
+Jeg brukte ChatGPT til å diskutere hvordan jeg kunne gjøre rapporten mer lesbar ved å skrive ut elementene fra dictionaries
+og lister på separate linjer.
+
+4.4
+Jeg rettet koden selv, men fikk et par hint fra ChatGPT om hvor jeg burde se etter feil. 
 
 ## Git-historikk
 Jeg har brukt Git under arbeidet med oppgavene.
