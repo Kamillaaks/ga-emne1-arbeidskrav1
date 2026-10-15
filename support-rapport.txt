@@ -1,0 +1,19 @@
+Support Report
+Total requests: 15
+Number of requests per category: 
+innlogging: 4
+programvare: 4
+nettverk: 2
+utstyr: 5
+Total minutes used: 466
+Average time spent per request: 31.1
+Resolved requests: 9
+Unresolved requests: 6
+Most common category: utstyr (5 requests)
+Unresolved requests, sorted by time used:
+ID: 13 - Category: utstyr - Minutes: 63
+ID: 4 - Category: utstyr - Minutes: 55
+ID: 10 - Category: programvare - Minutes: 48
+ID: 2 - Category: programvare - Minutes: 42
+ID: 17 - Category: utstyr - Minutes: 39
+ID: 7 - Category: nettverk - Minutes: 35

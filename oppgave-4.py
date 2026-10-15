@@ -81,7 +81,7 @@ for request in valid_requests:
 sorted_requests = sorted(unresolved_requests, key=lambda item: item["minutes"], reverse=True)
 
 
-# Task 4.3 -
+# Task 4.3 - Write support report to file
 
 with open("support-rapport.txt", "w", encoding="utf-8") as file:
     file.write("Support Report\n")
