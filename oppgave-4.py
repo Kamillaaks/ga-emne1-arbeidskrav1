@@ -79,3 +79,21 @@ for request in valid_requests:
         unresolved_requests.append(request)
 
 sorted_requests = sorted(unresolved_requests, key=lambda item: item["minutes"], reverse=True)
+
+
+# Task 4.3 -
+
+with open("support-rapport.txt", "w", encoding="utf-8") as file:
+    file.write("Support Report\n")
+    file.write(f"Total requests: {total_requests}\n")
+    file.write(f"Number of requests per category: \n")
+    for category, count in category_counts.items():
+        file.write(f"{category}: {count}\n")
+    file.write(f"Total minutes used: {total_minutes}\n")
+    file.write(f"Average time spent per request: {average_time_spent:.1f}\n")
+    file.write(f"Resolved requests: {resolved_count}\n")
+    file.write(f"Unresolved requests: {unresolved_count}\n")
+    file.write(f"Most common category: {most_common_category[0]} ({most_common_category[1]} requests)\n")
+    file.write("Unresolved requests, sorted by time used:\n")
+    for request in sorted_requests:
+        file.write(f"ID: {request["id"]} - Category: {request["category"]} - Minutes: {request["minutes"]}\n")
