@@ -1,6 +1,7 @@
 import csv
 
 # Task 4.1 - read and validate CSV data
+
 valid_requests = []
 
 with open("supporthenvendelser.csv", encoding="utf-8") as file:
@@ -40,3 +41,41 @@ with open("supporthenvendelser.csv", encoding="utf-8") as file:
 
         valid_requests.append(row)
 
+
+ # Task 4.2 - Analyze valid requests
+
+total_requests = len(valid_requests)
+category_counts = {}
+
+for request in valid_requests:
+    category = request["category"]
+    if category in category_counts:
+        category_counts[category] += 1
+    else:
+        category_counts[category] = 1
+
+total_minutes = 0
+
+for request in valid_requests:
+    total_minutes += request["minutes"]
+
+average_time_spent = total_minutes / total_requests
+
+resolved_count = 0
+unresolved_count = 0
+
+for request in valid_requests:
+    if request["is_resolved"] == "yes":
+        resolved_count += 1
+    else:
+        unresolved_count += 1
+
+most_common_category = max(category_counts.items(), key=lambda item: item[1])
+
+
+unresolved_requests = []
+for request in valid_requests:
+    if request["is_resolved"] == "no":
+        unresolved_requests.append(request)
+
+sorted_requests = sorted(unresolved_requests, key=lambda item: item["minutes"], reverse=True)
