@@ -168,4 +168,6 @@ Jeg har brukt Git under arbeidet med oppgavene.
 Commit-historikken er tilgjengelig på Github:
 
 [Se Git-historikken]https://github.com/Kamillaaks/ga-emne1-arbeidskrav1/commits/master/
-![Skjermbilde av Git-historikken](Git-historikk.png)
+![Skjermbilde av Git-historikken](Git-historikk.png) 
+![Git-historikk2.png](Git-historikk2.png)
+![Git-historikk3.png](Git-historikk3.png)
