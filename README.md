@@ -8,13 +8,13 @@ python oppgave-1.py
 
 De øvrige oppgavene kjøres på samme måte ved å endre filnavnet.
 
+Videoforklaringen som følger med oppgaven, tar for seg oppgave 3.
+
 ## Kjente feil og mangler
-Jeg har ikke rukket å fullføre alle oppgavene. Oppgave 3 er delvis påbegynt, men ikke ferdig. Oppgave 4 og 5 er ikke
-påbegynt.
+Jeg har ikke rukket å fullføre alle oppgavene. Oppgave 5 er ikke påbegynt.
 
-Jeg har heller ikke rukket å spille inn videoen som skal følge med innleveringen.
-
-
+I oppgave 4 har jeg oppdaget en feil i feilhåndteringen. Dersom programmet forsøker å åpne en fil som ikke finnes, vises
+begge feilmeldingene i stedet for bare den relevante meldingen.
 
 ## Oppgave 1
 Løsning og fremgangsmåte:
@@ -52,7 +52,7 @@ fikk også forklaringer på any() og str(). Jeg har skrevet og testet koden selv
 
 ## Oppgave 3
 Løsning og fremgangsmåte:
-Jeg startet med å dele oppgaven i fire funksjoner, og ga dem hvert sitt ansvarsområde. Den ene skal konvertere dato, en skal beregne sluttidspunkt, en skal beregne antall dager mellom to 
+Jeg startet med å dele oppgaven i fire hovedfunksjoner, og ga dem hvert sitt ansvarsområde. Den ene skal konvertere dato, en skal beregne sluttidspunkt, en skal beregne antall dager mellom to 
 datoer, og den siste skal sortere datoer kronologisk.
 
 Jeg opprettet først funksjonene med midlertidige print()-uttrykk for å få på plass strukturen før jeg skulle begynne å
